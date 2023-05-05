@@ -8,4 +8,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: gh repo sync git@github.com:rowan-walshe/hello-world-ci-fork-test.git --branch main --force
+      - name: Sync Fork
+        run: gh repo sync git@github.com:rowan-walshe/hello-world-ci-fork-test.git --branch main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
