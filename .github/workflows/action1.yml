@@ -3,7 +3,7 @@ run-name: Sync Fork with Upstream
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*\30 * * * *"
+    - cron: "*/30 * * * *"
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
