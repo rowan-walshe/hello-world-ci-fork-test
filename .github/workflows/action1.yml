@@ -10,16 +10,19 @@ jobs:
     # Step 1: run a standard checkout action, provided by github
     - name: Checkout target repo
       uses: actions/checkout@v4
+      with:
+        ref:  main
 
     # Step 2: run the sync action
     - name: Sync upstream changes
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
       with:
-        target_sync_branch: master
+        target_sync_branch: main
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-        upstream_sync_branch: master
-        upstream_sync_repo: alire-project/alire
+        upstream_sync_branch: main
+        upstream_sync_repo: rowan-walshe-2/hello-world-ci-fork-test
+        shallow_since: 1 year ago
         # Set test_mode true to run tests instead of the true action!!
         test_mode: true
 
